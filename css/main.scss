@@ -1,10 +1,41 @@
 @import 'partials/colors';
 @import 'partials/reset';
+@import 'partials/fonts';
 
 /* Layout */
 
+main {
+    display: grid;
+    place-items: center;
+    padding: 0.5rem;
+}
+
 #tweets {
-    max-width: 60rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: dense;
+    gap: 1rem;
+    width: calc(min(90vw, 2200px));
+    .tweet {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        grid-template-rows: auto 1fr;
+        gap: 1rem;
+        padding: 0.25rem;
+        .tweet__name {
+            grid-column: 2;
+            grid-row: 1;
+        }
+        .tweet__username {
+            grid-column: 3;
+            grid-row: 1;
+        }
+        .tweet__content {
+            grid-column: 1 / 4;
+            grid-row: 2;
+            padding: 0.25rem;
+        }
+    }
 }
 
 
@@ -21,9 +52,30 @@ body {
 /* Fonts */
 
 #tweets {
-    .tweet-content {
+    .tweet__name,
+    .tweet__username {
+        font-family: Montserrat;
+    }
+    .tweet__content {
         font-family: 'Courier New', Courier, monospace;
-        font-size: x-large;
+        font-size: medium;
         line-height: 1.5;
+    }
+}
+
+@media only screen and (min-width: 880px) {
+    main {
+        padding: 2rem;
+        #tweets {
+            grid-template-columns: repeat(auto-fit, minmax(42rem, 1fr));
+            gap: 2rem;
+            .tweet {
+                padding: 1rem;
+                .tweet__content {
+                    padding: 1rem;
+                    font-size: x-large;
+                }
+            }
+        }
     }
 }
