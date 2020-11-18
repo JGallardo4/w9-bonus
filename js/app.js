@@ -91,14 +91,19 @@ tweets.forEach((t) => {
 
     var tweet_content = document.createElement('div');
     tweet_content.innerHTML = t.tweet_content;
-    tweet_content.setAttribute('class', 'tweet-content');
+    tweet_content.setAttribute('class', 'tweet__content');
+
+    var name = document.createElement('div');
+    name.innerHTML = t.username;
+    name.setAttribute('class', 'tweet__name');
 
     var username = document.createElement('div');
-    username.innerHTML = t.username;
-    username.setAttribute('class', 'username');
+    username.innerHTML = `@${t.username.toLowerCase()}`;
+    username.setAttribute('class', 'tweet__username');
 
-    tweet.append(tweet_content);
+    tweet.append(name);
     tweet.append(username);
+    tweet.append(tweet_content);
     parentElement.append(tweet);
 });
 

@@ -1,6 +1,11 @@
 @import 'partials/colors';
+@import 'partials/reset';
 
 /* Layout */
+
+#tweets {
+    max-width: 60rem;
+}
 
 
 /* Other Style */
@@ -14,3 +19,11 @@ body {
 
 
 /* Fonts */
+
+#tweets {
+    .tweet-content {
+        font-family: 'Courier New', Courier, monospace;
+        font-size: x-large;
+        line-height: 1.5;
+    }
+}
